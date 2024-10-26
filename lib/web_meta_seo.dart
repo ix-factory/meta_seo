@@ -1,5 +1,6 @@
 import 'package:web/web.dart' as web;
 import 'dart:js_interop' as js;
+import 'dart:js_interop_unsafe' as jsu;
 
 // ignore_for_file: avoid_web_libraries_in_flutter
 import 'package:meta_seo/meta_seo.dart';
@@ -101,7 +102,7 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [content] meta tag attribute
       required String content}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', [name, content]);
+    js.globalContext.callMethod('seoNameJS'.jsify()!, [name, content].jsify());
   }
 
   /// Definition of [property] meta tag attribute
@@ -119,7 +120,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [content] meta tag attribute
       required String content}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoPropertyJS', [property, content]);
+    js.globalContext
+        .callMethod('seoPropertyJS'.jsify()!, [property, content].jsify());
   }
 
   /// Definition of [key] meta tag attribute
@@ -137,7 +139,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [value] meta tag attribute
       required String value}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoAttributeJS', [key, value]);
+    js.globalContext
+        .callMethod('seoAttributeJS'.jsify()!, [key, value].jsify());
   }
 
   /// Definition of [author] meta tag attribute
@@ -151,7 +154,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [author] meta tag attribute
       required String author}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', ['author', author]);
+    js.globalContext
+        .callMethod('seoNameJS'.jsify()!, ['author', author].jsify());
   }
 
   /// Definition of [description] meta tag attribute
@@ -165,7 +169,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [description] meta tag attribute
       required String description}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', ['description', description]);
+    js.globalContext
+        .callMethod('seoNameJS'.jsify()!, ['description', description].jsify());
   }
 
   /// Definition of [keywords] meta tag attribute
@@ -179,7 +184,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [keywords] meta tag attribute
       required String keywords}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', ['keywords', keywords]);
+    js.globalContext
+        .callMethod('seoNameJS'.jsify()!, ['keywords', keywords].jsify());
   }
 
   /// Definition of [viewport] meta tag attribute
@@ -194,7 +200,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [viewport] meta tag attribute
       required String viewport}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', ['viewport', viewport]);
+    js.globalContext
+        .callMethod('seoNameJS'.jsify()!, ['viewport', viewport].jsify());
   }
 
   /// Definition of [http-equiv] meta tag attribute
@@ -208,7 +215,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [http-equiv] meta tag attribute
       required String httpEquiv}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoAttributeJS', ['http-equiv', httpEquiv]);
+    js.globalContext.callMethod(
+        'seoAttributeJS'.jsify()!, ['http-equiv', httpEquiv].jsify());
   }
 
   /// Definition of [charset] meta tag attribute
@@ -222,7 +230,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [charset] meta tag attribute
       required String charset}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoAttributeJS', ['charset', charset]);
+    js.globalContext
+        .callMethod('seoAttributeJS'.jsify()!, ['charset', charset].jsify());
   }
 
   /// Definition of [fb:app_id] meta tag attribute
@@ -235,7 +244,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [fb:app_id] meta tag attribute
       required String facebookAppID}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoPropertyJS', ['fb:app_id', facebookAppID]);
+    js.globalContext.callMethod(
+        'seoPropertyJS'.jsify()!, ['fb:app_id', facebookAppID].jsify());
   }
 
   /// Definition of [og:title] meta tag attribute
@@ -249,7 +259,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [og:title] meta tag attribute
       required String ogTitle}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoOpenGraphJS', ['og:title', ogTitle]);
+    js.globalContext
+        .callMethod('seoOpenGraphJS'.jsify()!, ['og:title', ogTitle].jsify());
   }
 
   /// Definition of [og:description] meta tag attribute
@@ -263,7 +274,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [og:description] meta tag attribute
       required String ogDescription}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoOpenGraphJS', ['og:description', ogDescription]);
+    js.globalContext.callMethod(
+        'seoOpenGraphJS'.jsify()!, ['og:description', ogDescription].jsify());
   }
 
   /// Definition of [og:image] meta tag attribute
@@ -277,7 +289,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [og:image] meta tag attribute
       required String ogImage}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoOpenGraphJS', ['og:image', ogImage]);
+    js.globalContext
+        .callMethod('seoOpenGraphJS'.jsify()!, ['og:image', ogImage].jsify());
   }
 
   /// Definition of [twitter:card] meta tag attribute
@@ -295,7 +308,8 @@ class WebMetaSEO implements MetaSEO {
       case TwitterCard.summary:
 
         /// Call the javascript function with summary attribute
-        js.context.callMethod('seoNameJS', ['twitter:card', 'summary']);
+        js.globalContext.callMethod(
+            'seoNameJS'.jsify()!, ['twitter:card', 'summary'].jsify());
 
         /// Break the switch loop if done
         break;
@@ -304,8 +318,8 @@ class WebMetaSEO implements MetaSEO {
       case TwitterCard.summaryLargeImage:
 
         /// Call the javascript function with summary_large_image attribute
-        js.context
-            .callMethod('seoNameJS', ['twitter:card', 'summary_large_image']);
+        js.globalContext.callMethod('seoNameJS'.jsify()!,
+            ['twitter:card', 'summary_large_image'].jsify());
 
         /// Break the switch loop if done
         break;
@@ -314,7 +328,8 @@ class WebMetaSEO implements MetaSEO {
       case TwitterCard.app:
 
         /// Call the javascript function with app attribute
-        js.context.callMethod('seoNameJS', ['twitter:card', 'app']);
+        js.globalContext
+            .callMethod('seoNameJS'.jsify()!, ['twitter:card', 'app'].jsify());
 
         /// Break the switch loop if done
         break;
@@ -323,7 +338,8 @@ class WebMetaSEO implements MetaSEO {
       case TwitterCard.player:
 
         /// Call the javascript function with player attribute
-        js.context.callMethod('seoNameJS', ['twitter:card', 'player']);
+        js.globalContext.callMethod(
+            'seoNameJS'.jsify()!, ['twitter:card', 'player'].jsify());
 
         /// Break the switch loop if done
         break;
@@ -340,7 +356,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [twitter:title] meta tag attribute
       required String twitterTitle}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', ['twitter:title', twitterTitle]);
+    js.globalContext.callMethod(
+        'seoNameJS'.jsify()!, ['twitter:title', twitterTitle].jsify());
   }
 
   /// Definition of [twitter:description] meta tag attribute
@@ -353,8 +370,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [twitter:description] meta tag attribute
       required String twitterDescription}) {
     /// Call the javascript function with needed attributes
-    js.context
-        .callMethod('seoNameJS', ['twitter:description', twitterDescription]);
+    js.globalContext.callMethod('seoNameJS'.jsify()!,
+        ['twitter:description', twitterDescription].jsify());
   }
 
   /// Definition of [twitter:image] meta tag attribute
@@ -367,7 +384,8 @@ class WebMetaSEO implements MetaSEO {
       /// Definition of [twitter:image] meta tag attribute
       required String twitterImage}) {
     /// Call the javascript function with needed attributes
-    js.context.callMethod('seoNameJS', ['twitter:image', twitterImage]);
+    js.globalContext.callMethod(
+        'seoNameJS'.jsify()!, ['twitter:image', twitterImage].jsify());
   }
 
   /// Definition of [robotsName] meta tag attribute
@@ -390,7 +408,8 @@ class WebMetaSEO implements MetaSEO {
       case RobotsName.google:
 
         /// Call the javascript function with google attribute
-        js.context.callMethod('seoRobotsJS', ['google', content]);
+        js.globalContext
+            .callMethod('seoRobotsJS'.jsify()!, ['google', content].jsify());
 
         /// Break the switch loop if done
         break;
@@ -399,7 +418,8 @@ class WebMetaSEO implements MetaSEO {
       case RobotsName.googleBot:
 
         /// Call the javascript function with googleBot attribute
-        js.context.callMethod('seoRobotsJS', ['googlebot', content]);
+        js.globalContext
+            .callMethod('seoRobotsJS'.jsify()!, ['googlebot', content].jsify());
 
         /// Break the switch loop if done
         break;
@@ -408,7 +428,8 @@ class WebMetaSEO implements MetaSEO {
       case RobotsName.googleBotNews:
 
         /// Call the javascript function with googleBotNews attribute
-        js.context.callMethod('seoRobotsJS', ['googlebot-news', content]);
+        js.globalContext.callMethod(
+            'seoRobotsJS'.jsify()!, ['googlebot-news', content].jsify());
 
         /// Break the switch loop if done
         break;
@@ -417,8 +438,8 @@ class WebMetaSEO implements MetaSEO {
       case RobotsName.googleSiteVerification:
 
         /// Call the javascript function with googleSiteVerification attribute
-        js.context
-            .callMethod('seoNameJS', ['google-site-verification', content]);
+        js.globalContext.callMethod('seoNameJS'.jsify()!,
+            ['google-site-verification', content].jsify());
 
         /// Break the switch loop if done
         break;
@@ -427,7 +448,8 @@ class WebMetaSEO implements MetaSEO {
       case RobotsName.robots:
 
         /// Call the javascript function with robots attribute
-        js.context.callMethod('seoRobotsJS', ['robots', content]);
+        js.globalContext
+            .callMethod('seoRobotsJS'.jsify()!, ['robots', content].jsify());
 
         /// Break the switch loop if done
         break;
