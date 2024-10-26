@@ -1,5 +1,5 @@
-import 'dart:html';
-import 'dart:js' as js;
+import 'package:web/web.dart' as web;
+import 'dart:js_interop' as js;
 
 // ignore_for_file: avoid_web_libraries_in_flutter
 import 'package:meta_seo/meta_seo.dart';
@@ -17,13 +17,13 @@ class WebMetaSEO implements MetaSEO {
   @override
   config() {
     /// Define the ScriptElement
-    ScriptElement script = ScriptElement();
+    web.HTMLScriptElement script = web.HTMLScriptElement();
 
     /// Define the id of the ScriptElement
     script.id = 'metaSEOScripts';
 
     /// Define the javascript code of the ScriptElement
-    script.innerHtml = """
+    script.innerHTML = """
   function seoNameJS(name, content) {
     if(document.querySelector("[name='"+name+"']") !== null) {
       document.querySelector("[name='"+name+"']").remove();
@@ -66,14 +66,15 @@ class WebMetaSEO implements MetaSEO {
     meta.setAttribute('content', content);
     document.getElementsByTagName('head')[0].appendChild(meta);
   }
-    """;
+    """
+        .jsify()!;
 
     /// Make loop in html file body to check of any node with the same id
-    for (int i = 0; i < document.body!.children.length; i++) {
+    for (int i = 0; i < web.document.body!.children.length; i++) {
       /// Check if the id of the package is exists in the html document
-      if (document.body!.children[i].id == 'metaSEOScripts') {
+      if (web.document.body!.children.item(i)!.id == 'metaSEOScripts') {
         /// Remove any node with the same id of the javascript functions
-        document.body!.children[i].remove();
+        web.document.body!.children.item(i)!.remove();
 
         /// Then break the loop after deleting
         break;
@@ -82,7 +83,7 @@ class WebMetaSEO implements MetaSEO {
 
     /// Add new or replace the javascript needed functions to the end
     /// of the body of the html document
-    document.body!.insertAdjacentElement('beforeEnd', script);
+    web.document.body!.insertAdjacentElement('beforeEnd', script);
   }
 
   /// Definition of [name] meta tag attribute
