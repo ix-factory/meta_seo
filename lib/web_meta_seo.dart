@@ -155,7 +155,7 @@ class WebMetaSEO implements MetaSEO {
       required String author}) {
     /// Call the javascript function with needed attributes
     js.globalContext
-        .callMethod('seoNameJS'.jsify()!, ['author', author].jsify());
+        .callMethod('seoNameJS'.jsify()!, ['author'].jsify(), [author].jsify());
   }
 
   /// Definition of [description] meta tag attribute
@@ -170,7 +170,7 @@ class WebMetaSEO implements MetaSEO {
       required String description}) {
     /// Call the javascript function with needed attributes
     js.globalContext
-        .callMethod('seoNameJS'.jsify()!, ['description', description].jsify());
+        .callMethod('seoNameJS'.jsify()!, ['description'].jsify(), [description].jsify());
   }
 
   /// Definition of [keywords] meta tag attribute
@@ -185,7 +185,7 @@ class WebMetaSEO implements MetaSEO {
       required String keywords}) {
     /// Call the javascript function with needed attributes
     js.globalContext
-        .callMethod('seoNameJS'.jsify()!, ['keywords', keywords].jsify());
+        .callMethod('seoNameJS'.jsify()!, ['keywords'].jsify(), [keywords].jsify());
   }
 
   /// Definition of [viewport] meta tag attribute
@@ -260,7 +260,7 @@ class WebMetaSEO implements MetaSEO {
       required String ogTitle}) {
     /// Call the javascript function with needed attributes
     js.globalContext
-        .callMethod('seoOpenGraphJS'.jsify()!, ['og:title', ogTitle].jsify());
+        .callMethod('seoOpenGraphJS'.jsify()!, ['og:title'].jsify(), [ogTitle].jsify());
   }
 
   /// Definition of [og:description] meta tag attribute
@@ -275,7 +275,7 @@ class WebMetaSEO implements MetaSEO {
       required String ogDescription}) {
     /// Call the javascript function with needed attributes
     js.globalContext.callMethod(
-        'seoOpenGraphJS'.jsify()!, ['og:description', ogDescription].jsify());
+        'seoOpenGraphJS'.jsify()!, ['og:description'].jsify(), [ogDescription].jsify());
   }
 
   /// Definition of [og:image] meta tag attribute
@@ -290,7 +290,7 @@ class WebMetaSEO implements MetaSEO {
       required String ogImage}) {
     /// Call the javascript function with needed attributes
     js.globalContext
-        .callMethod('seoOpenGraphJS'.jsify()!, ['og:image', ogImage].jsify());
+        .callMethod('seoOpenGraphJS'.jsify()!, ['og:image'].jsify(), [ogImage].jsify());
   }
 
   /// Definition of [twitter:card] meta tag attribute
